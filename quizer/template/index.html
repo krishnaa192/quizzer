@@ -1,0 +1,123 @@
+
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="#">Quizer</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about'%}">About</a></li>
+                    <!-- <li><a href="#">Contact Us</a></li> -->
+                   
+                   
+                    {% if request.user.is_authenticated %}
+                  <li>  <a href="{% url 'logout' %}">Logout</a>
+                    {% else %} 
+                    </li>
+                    <li><a href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                </li> 
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    {% endif %} 
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="content">
+            <h1 class="heading">
+                <span class="small">Welcome to </span>
+
+                <span class="no-fill">Quizer</span>
+            </h1>
+
+        </div>
+    </section>
+
+    <section id="services-container">
+        <!-- <h1 class="h-primary center">Our services</h1> -->
+        <div id="services">
+            {% if request.user.is_authenticated %}
+            <div class="box">
+                 <a href="#"></a>
+                <img src="{%static 'images/x.jpg' %}" alt="" class="scr">
+                <h2 class="h-secondary center"><a href="{% url 'addquiz'  %}">Create a Quiz</a></h2>
+                <p class="center">Create a quiz here.You can create a quiz easily </p>
+            </div>
+            {% else %} 
+            <div class="box">
+                <!-- <img src="{%static 'images/y.jpg' %}" alt="" class="scr"> -->
+                Name: <br> <input type="text",value='Name'>
+                <label for="Name">  </label>
+                <br>
+                id: <br> <input type="text", value="id">
+                <label for="id"> </label>
+                <p class="center">Take the quiz and check your intelligence</p>
+                <input id="submit_button" type="submit" value="submit">
+            </div>
+           {% endif %}
+        </div>
+    </section>
+    <footer>
+        <div class="center">
+            copyright &copy;www.quizzer.com All rights reserved.
+        </div>
+    </footer>
+   
+    <script>
+        const body = document.querySelector('body');
+        const nav = document.querySelector('nav');
+        const modeToggle = document.querySelector('.dark-light');
+        const sidebarOpen = document.querySelector('.sidebarOpen');
+        const sidebarClose = document.querySelector('.sidebarClose');
+        let getMode = localStorage.getItem('mode');
+        if (getMode && getMode === 'dark-mode') {
+            body.classList.add('dark');
+        }
+        modeToggle.addEventListener('click', () => {
+            modeToggle.classList.toggle('active');
+            body.classList.toggle('dark');
+            if (!body.classList.contains("dark")) {
+                localStorage.setItem('mode', "light-mode");
+            }
+            else {
+                localStorage.setItem('mode', 'dark-mode');
+            }
+        })
+        sidebarOpen.addEventListener('click', () => {
+            nav.classList.add('active');
+        })
+        body.addEventListener('click', e => {
+            let clicked = e.target;
+            if (!clicked.classList.contains("sidebarOpen") && !clicked.classList.contains("menu")) {
+                nav.classList.remove('active')
+            }
+        })
+
+    </script>
+ {% endblock %}

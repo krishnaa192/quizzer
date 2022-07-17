@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ADD QUIZ</title>
+  <link rel="stylesheet" href="{ %static 'style/style5.css' %}">
+</head>
+
+<body>
+  <div class="conatainer">
+    <h2>Add quiz</h2>
+    
+      <!-- <p1>USER NAME</p1> -->
+      <input type="hidden" value="{{usname}}">
+      <hr>
+    </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+        
+        <!-- {{form.as_p}} -->
+    Q1: <br> <textarea name="" id="" cols="80" rows="5"></textarea>
+       {{from.questions}}
+       {{form.media}}
+    <br>
+    <br>
+    A. <input type="text">
+    {{form.option1}}
+    {{form.media}}
+    <br>
+    <br>
+    B. <input type="text">
+    {{form.option2}}
+    {{form.media}}
+    <br>
+    <br>
+    C. <input type="text">
+    {{from.option2}}
+    {{form.media}}
+    <br>
+    <br>
+    D. <input type="text">
+    {{from.option2}}
+    {{form.media}}
+    <br>
+    <br>
+    <hr>
+
+  </div>
+  <button type="submit" id="submit_button">SUBMIT</button>
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+/* h1{
+    background-color: grey;
+} */
+
+.container {
+    width: 50%;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    align-items: center;
+    color: grey;
+}
+
+.input {
+    position: relative;
+}
+
+.input::placeholder {
+    color: transparent;
+}
+
+#submit_button {
+    background-color: #588CE0;
+    width: 140px;
+    border: 1px solid #588CE0;
+    border-radius: 25px;
+    height: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #FCFFE7;
+    text-transform: uppercase;
+}
+
+input,
+textarea {
+    border: 2px solid grey;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+
+}

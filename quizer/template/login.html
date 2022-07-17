@@ -1,0 +1,41 @@
+
+{% load static%}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'style/style4.css' %}">
+ {% endblock%}
+    
+    {% block content %}
+    {%  include 'navbar.html' %} 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="header">
+       
+
+        <div class="container">
+            <form action="" method="POST" >
+                {% csrf_token %}
+                <h2>QUIZER</h2>
+                <img src="{%static 'style/1.jpg'%}" width="60" height="60">
+                <div class="input">
+                    <input type="username" class="form-input" placeholder="username" id="username" required>
+                    <label for="username" class="label" class="form-input">username</label>
+                   
+                <div class="input">
+                    <input type="password" class="form-input" placeholder="Password" id="password" required>
+                    <label for="password" class="label" class="form-input">Password</label>
+                </div>
+               
+                <input id="submit_button" type="submit" value="Logins">
+
+                <p><a href="">If dont have account</a></p>
+                <button type="submit" id="submit_button"><a href="{% url 'register' %}">Register</a></button>
+            </form>
+        </div>
+    </div>
+  
+{% endblock %}

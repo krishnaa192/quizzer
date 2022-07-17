@@ -1,0 +1,80 @@
+{% load static %}
+ 
+{% block css %}
+
+ 
+
+
+<link rel="stylesheet" href="{% static '/style/style.css' %}"/>
+{% endblock %}
+ 
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+ 
+    <ul class="navbar-nav">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+  
+      <li class="nav-item active">
+        
+      
+ 
+      </li>
+     
+    </ul>
+  </div>
+  {% if request.user.is_authenticated %}
+  <span class="greet">Hello, {{request.user}}</span>
+  <span ><a  class="greet" href="{% url 'logout' %}">Logout</a></span>
+  {% endif %} 
+ 
+</nav> -->
+{% block body%}
+
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="#">Quizer</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item">
+                      
+                      <li><a href="{% url 'about'%}">About</a></li>
+                   
+                   
+                   {% if request.user.is_authenticated %}
+                    <li> <a href="{% url 'logout' %}">Logout</a>
+
+                    </li>
+                    {% else %}
+                    <li><a  href="{% url 'login' %}">Logins</a></li>
+                    {% endif %} 
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    {% endif %} 
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+    {% endblock %}

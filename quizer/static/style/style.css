@@ -1,0 +1,359 @@
+/* css reset  */
+*{
+    margin: 0;
+    padding: 0;
+
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* css variables */
+:root{
+    --navbar-height: 40px;
+}
+/* ===== Google Font Import - Poppins ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;;
+}
+
+
+/* ===== Colours ===== */
+:root{
+    --body-color: #E4E9F7;
+    --nav-color: #010718;
+    --side-nav: #010718;
+    --text-color: white;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body.dark nav{
+    border: 1px solid black;
+
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1.2px;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav .nav-bar .logo a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+
+
+
+/* home section  */
+
+section.home{
+     margin-top: 60px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: url("patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.content{
+    text-align: center;
+}
+.heading{
+    color: #000;
+    text-transform: capitalize;
+    font-size: 100px;
+    line-height: 60px;
+    margin-bottom: 80px;
+}
+.heading .small{
+    display: block;
+    font-size: 40px;
+}
+
+.heading .no-fill{
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 2px #000;
+}
+
+/* utility classes */
+.h-primary{
+    font-size: 5.8rem;
+    padding: 106px;
+    /* padding: 10px 10px; */
+
+}
+.h-secondary{
+    font-size: 1.8rem;
+    padding: 12px;
+    font-family: sans-serif;
+    
+
+}
+
+/* SERVICES */
+#services-container{
+    padding: 50px 100px;
+
+}
+#services{
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: small;
+
+}
+#services .box{
+    
+    
+    padding: 3px 100px;
+    margin: 3px 6px;
+    background-color: whitesmoke;
+    box-shadow: -12px 10px 10px -2px rgba(176,176,176,0.65);;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* align-items: center;
+    display: flex; */
+
+}
+
+
+
+
+#services .box img{
+    align-items: center;
+    margin: 10px 10px;
+    display: block;
+   height: 160px;
+   border-radius: 10px;
+
+}
+#services .box p{
+    padding-bottom: 5px;
+}
+.box a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--search-text);
+}
+
+
+
+
+/* FOOTER */
+footer{
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+@media (max-width: 790px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+    .heading{
+        font-size: 60px;
+    }
+    #services-container{
+        padding: 20px;
+    }
+    #services{
+        display: flex;
+        flex-direction: column;
+    }
+    #services .box{
+        padding:0 20px ;
+    }
+}
